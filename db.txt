@@ -1,0 +1,161 @@
+create database students;
+\connect students
+
+create table results (
+    roll_no VARCHAR (10) PRIMARY KEY,
+    name VARCHAR (50) NOT NULL,
+    dob DATE default '1900-01-01',
+    cgpa double precision default 0
+);
+
+insert into results VALUES ('141640001', 'Jennifer Williams', '1999-06-12', 10);
+insert into results VALUES ('141640002', 'Jack P.', '2000-07-13', 8);
+insert into results VALUES ('141640003', 'George Smith', '2001-03-07', 7);
+insert into results VALUES ('141640004', 'Thomas Bilyeu', '2001-12-22', 9.2);
+insert into results VALUES ('141640005', 'Jim Rohn', '2000-06-14', 9.5);
+insert into results VALUES ('141640006', 'John Reese', '1998-10-22', 9.8);
+insert into results VALUES ('141640007', 'Harold Finch', '2001-04-10', 9.1);
+insert into results VALUES ('141640008', 'Nita Matthew', '1999-11-09', 8.8);
+insert into results VALUES ('141640009', 'Jaden Floyd', '1999-10-02', 8.2);
+insert into results VALUES ('141640010', 'Martha McCarthy', '2003-10-06', 8.3);
+insert into results VALUES ('141640011', 'David Goggins', '1999-07-03', 9.10);
+insert into results VALUES ('141640012', 'Jocko Willink', '2001-06-26', 9.48);
+insert into results VALUES ('141640013', 'Kobe Bryant', '2000-07-25', 9.5);
+insert into results VALUES ('141640014', 'HACKER_SPACE{c2e8277f1a7c2d7e12fd4b5638c8ece5}', '1998-04-18', 10);
+insert into results VALUES ('141640015', 'Michael Jordan', '2001-05-25', 7.9);
+insert into results VALUES ('141640016', 'Raymond S.', '1999-07-15', 8.9);
+insert into results VALUES ('141640017', 'Jo-Ann Yeoh', '1999-03-20', 10);
+insert into results VALUES ('141640018', 'Ariana Grande', '2002-07-15', 8.93);
+insert into results VALUES ('141640019', 'Hailee Steinfeld', '1999-04-14', 9);
+insert into results VALUES ('141640020', 'Sameen Shaw', '1998-07-12', 6.8);
+insert into results VALUES ('141640021', 'Joss Carter', '2002-11-27', 6.5);
+insert into results VALUES ('141640022', 'Lionel Fusco', '2001-05-01', 9.5);
+insert into results VALUES ('141640023', 'Carl Elias', '2001-05-14', 9.7);
+insert into results VALUES ('141640024', 'Grace Hendricks', '1999-11-18', 9.8);
+insert into results VALUES ('141640025', 'Jessica Arndt', '2001-03-11', 9.6);
+insert into results VALUES ('141640026', 'Ben Linus', '2002-08-10', 9.58);
+insert into results VALUES ('141640027', 'Harper Rose', '2000-05-13', 9.75);
+insert into results VALUES ('141640028', 'Alonzo Quinn', '2002-11-08', 9.77);
+insert into results VALUES ('141640029', 'Clarke Peters', '1999-09-01', 9.2);
+insert into results VALUES ('141640030', 'Gabriel Hayward', '2001-12-18', 6.7);
+insert into results VALUES ('141640031', 'Rachel Benham', '2001-08-19', 6.9);
+insert into results VALUES ('141640032', 'Sarah Shahi', '1998-04-25', 6.14);
+
+
+
+create user api_user with password 'c00per';
+grant CONNECT ON DATABASE students TO api_user;
+grant SELECT ON results TO api_user;
+grant SELECT ON secret_flag TO api_user;
+
+create table secret_flag (flag varchar(50));
+insert into secret_flag VALUES ('HACKER_SPACE{584fc0b4036fda08f3ac157821e001f4}');
+
+
+
+create table logins (
+    roll_no VARCHAR (10) PRIMARY KEY,
+    passwd CHAR (106) NOT NULL,
+    otp CHAR (4) default NULL
+);
+
+insert into logins VALUES ('141640001', '$6$DW3rMhTbdeHj/sYV$QJr76N/lsRTTz1cpYvrBu771aumM4p.OaTiy0UzBnuZerAAtdNSOCkC2EK0YVx7GWeJpL2ZGlCbCzg0BTsGO7.');
+insert into logins VALUES ('141640002', '$6$DW3rMhTbdeHj/sYV$lu0u7hzpPxD0XyWV/Zu13z6iYnEUXveRlGXb1Dd3zE2vFGAz53zR21FepZYUJojrrJVrHJKPUCcJ2SNa50plm0');
+insert into logins VALUES ('141640003', '$6$DW3rMhTbdeHj/sYV$asZPBNts3pWaQiuEuU408db437JariwKhJELpXMQ0gjVd4NVPkBZvvO495z7Knktbl7xdd68ygUQEw0R1C8hz.');
+insert into logins VALUES ('141640004', '$6$DW3rMhTbdeHj/sYV$CopdJL.G/NxX/o0f2cTh00OuwzxFRUM/.2O1fD0JqJeQH614bWuU2CHISuhMvisjYBGMo./cr336ApEIRFxHW.');
+insert into logins VALUES ('141640005', '$6$DW3rMhTbdeHj/sYV$HogUvLRbLc4yllCZWIvm6Ge32kNX5fxz8Rqb6VWiYu9M2g4pTcQDMVIxPfWkdfWJ6PM188zEC3SC577YbhmMl0');
+insert into logins VALUES ('141640006', '$6$DW3rMhTbdeHj/sYV$c8dtHU0WNC55bhMARgFnFfZPJmusfsG76q6rLP7ncuKpHw2ruPNaJPKid1E.MSnMlm.zoXKCg1pr.U.DmzOUg/');
+insert into logins VALUES ('141640007', '$6$DW3rMhTbdeHj/sYV$ucP2q4m29kkt4l6qNY3uDg5sxHdyax27OI1MszRJ20Juiw2NY.4v2TxwaKE3tj.FTE1drJhgrupUt42BWPLxc0');
+insert into logins VALUES ('141640008', '$6$DW3rMhTbdeHj/sYV$nEoAQFWffTvjWUd0.SZgIzodUEfzAkwW9Z9dppSJu4DoPur2fT3y3k9FcUEcLgIGpsfChbR0YCseCVY8U9PF8/');
+insert into logins VALUES ('141640009', '$6$DW3rMhTbdeHj/sYV$6Gu1yLn/zcad7pb/GW1p7AT3rpORCrH5JmFSbQhr9ziNbcE2wCfSaLDtDXleCnLs4eZHnrRXabj5Ty1pqEVdB.');
+insert into logins VALUES ('141640010', '$6$DW3rMhTbdeHj/sYV$2bBgyuGDt3i3Lp83.vsS/wbczLvSP6RuWABAhZEjWtm7AXYs68LaxP3OTMW2A5lzIgeqzu7sF3xuaj/kmrmzV.');
+insert into logins VALUES ('141640011', '$6$DW3rMhTbdeHj/sYV$LabvUp2sbWryU1xjbbE31LORpyPVjTdDG/7.lR7Ko36D1glunomOkiHTwwsa8xpzmbC4NdDYH.Lf.ybCxEMwC/');
+insert into logins VALUES ('141640012', '$6$DW3rMhTbdeHj/sYV$jWjEi5UbuGcstnQCdC2MaEHmCpNJWJvEeTV0Qz8xLRjRp97CH5Sexp/wy/y1V9ZPEonzrz/4jBy.OTJH7jdir1');
+insert into logins VALUES ('141640013', '$6$DW3rMhTbdeHj/sYV$YpX7ypJV8YAy0eXyqufnjQ5jFv.0AnowtjHM1EifGn3CpEFXDmMNAqnzdwjbtnj4JpNyB7l3cxIKdHlOUjFcp.');
+insert into logins VALUES ('141640014', '$6$DW3rMhTbdeHj/sYV$JUp43wgaHAa2ECPRntcTrU47Ap/lDFmI2ZPkSFXv8RGL4DdDqxVbFyB9zvGYTODOJdV72AuN.edZ9gcqbsLHA/');
+insert into logins VALUES ('141640015', '$6$DW3rMhTbdeHj/sYV$kr2jzqDnS4fMo7i43n1oMEcgqqAISq96FQG.Kcv4FbrBw14NYv8Rkt784oNmvSbPY.EwMdlTvkZ3GF.kcMdct/');
+insert into logins VALUES ('141640016', '$6$DW3rMhTbdeHj/sYV$eiLPLYIj2OOwTYBjdhdG3S/AWxm7FmZar2GmDUbbZkIV2g.7q8SWfrh7hrQD9KKHDMfuUB8Xm3XY1P1vNiNN41');
+insert into logins VALUES ('141640017', '$6$DW3rMhTbdeHj/sYV$.4PUzvjAMBFS8TsX79UcmHArW36FAJIBhgv0vei9.OhPtXdqZmsbJWmhR/.t52lXfl1v/zOVhKrz/7DMuJi6a1');
+insert into logins VALUES ('141640018', '$6$DW3rMhTbdeHj/sYV$0F.A9r9Jqc4QsoCjelAD7Aon07G7rQstNhlyZxKLRKil9kggLORDJwsF1lWx1n6X8wbR/i5EjEeGFbcXOEY5K/');
+insert into logins VALUES ('141640019', '$6$DW3rMhTbdeHj/sYV$oL58ourl1Ph9MOi9VuVvO2NwP4s3cCpC1GWM0zY5CWwRiTihBn14YKUcZhRxsRhy0R8600RZgpJVI8KhMviSX/');
+insert into logins VALUES ('141640020', '$6$DW3rMhTbdeHj/sYV$N0QZ24E6rZfOFUsCf3m7qMVX9wr.3Tcs14dyV8Zb2LmP/JqxCxj.AdkbMWduY8EQJ3PYytq7/nxu7gjX4JyXQ/');
+insert into logins VALUES ('141640021', '$6$DW3rMhTbdeHj/sYV$xLEgde9DUIp9NVHOH0qrw2KXrii/kOMe0F4yrG238YGPfWaZah8N5sxs4sdFXbeObnmgW4iGbda/WyiLBkrHO1');
+insert into logins VALUES ('141640022', '$6$DW3rMhTbdeHj/sYV$.eODJyvnCKFZaa5qpD4WD.VnLiOrc9TjitP2xXJQCP3IWXl5u2DmLxAwYtEWbV1YMhcoCoLZcBaUALOAMfvkE.');
+insert into logins VALUES ('141640023', '$6$DW3rMhTbdeHj/sYV$HbjxULUOa0XIxL2ippcESlEeYAhlMWpGUboAIOUGDrTQY3nOiSjCQWR6keedDIPMlhSotxo5lgVdW4FTsuMPE0');
+insert into logins VALUES ('141640024', '$6$DW3rMhTbdeHj/sYV$37nyXDEs9m3pYPRyY0xlnuXKCurCsalwfLE5d4wp5sAYrsIdmFm0/FjO.3aPpYBZ.wz..UzgPih6r2BmvGJXI/');
+insert into logins VALUES ('141640025', '$6$DW3rMhTbdeHj/sYV$e7LmB5Apghj25wkLJYszbvxshAnMarga.xcqsgNZkwbnxLDCGBFwPP5Nvx0ulfxsG1dJgrNvXqWfRJz2haAtA.');
+insert into logins VALUES ('141640026', '$6$DW3rMhTbdeHj/sYV$6jtQTcuLTdCirYC5qviIGdgGjubGyvDlrGkcXJF.xRMGqio.n4RjUAVt7.f5Cc5Z/dByZkGJvMFA9vN6H1QZl.');
+insert into logins VALUES ('141640027', '$6$DW3rMhTbdeHj/sYV$s4F7ZENAyHhGiiI9uqfXdZg6G76YyT/cLFD0qU1cVeINeqjCJ/Ofrw8wxSvnB7ZjsP.uA5BPL4NeRnX5icPj4.');
+insert into logins VALUES ('141640028', '$6$DW3rMhTbdeHj/sYV$bLNhFP5far8yCHkh9NH3at8ZMk0mWxLtXst5UXQl0iYQCdE5XaIZLwViG8lY/rtkB8XL5gFf14VPS0/j/N2l.0');
+insert into logins VALUES ('141640029', '$6$DW3rMhTbdeHj/sYV$iLzt6ONDf6AfXGLTOD4RK/5r.jBglvNzj3dor1VMckV.A2hOU5MCJncJh72w1CiE.PQUb/gtceto6FPGFibxY1');
+insert into logins VALUES ('141640030', '$6$DW3rMhTbdeHj/sYV$yvjzNS/aQqj6iLlp/ByIF1uHVfNzZQd3FzdpLf5EegbZHHBRP2lk6TUXV4WQGMEMfcdKeVgcGx1IKQKotxuQB0');
+insert into logins VALUES ('141640031', '$6$DW3rMhTbdeHj/sYV$AFeq1.TDuSgIMRC62ByrQ.U7d37LI6ANTnaKC/smxX5Cpx7SE6q6yLkygCqQG1AE9WBEhoYiRqPCHG3IZDpFX/');
+insert into logins VALUES ('141640032', '$6$DW3rMhTbdeHj/sYV$dRmQKXiQBlnViNjkxZsv/0hABRaRZDj8UrZCNuGZYRYlPvuq/x5gElbnkaVN.KItQ8d00wHwHixU2rbCPl9941');
+
+
+
+create table logins_hard (
+    roll_no VARCHAR (10) PRIMARY KEY,
+    passwd CHAR (106) NOT NULL,
+    otp CHAR (4) default NULL
+);
+
+
+
+insert into logins_hard VALUES ('141640001', '$6$DW3rMhTbdeHj/sYV$bFANfOBH1Azu6XpZu2DiMo42/93uxH82JnfxrcfY0SNvza4cGtq7pCXRuouHDuxP4/JzAmDBVZ4H21VZ3Weg6/');
+insert into logins_hard VALUES ('141640002', '$6$DW3rMhTbdeHj/sYV$lu0u7hzpPxD0XyWV/Zu13z6iYnEUXveRlGXb1Dd3zE2vFGAz53zR21FepZYUJojrrJVrHJKPUCcJ2SNa50plm0');
+insert into logins_hard VALUES ('141640003', '$6$DW3rMhTbdeHj/sYV$qDcgVYn2UC6QzGzeBg3DJFwpMu.45UcETyX/5stejRtcBRG8wMpQgKnpp.MFNJZQRR7xTibNQFgUAXqGFnCCg/');
+insert into logins_hard VALUES ('141640004', '$6$DW3rMhTbdeHj/sYV$gI9RXe0LRQBpCWg02o6nHO7cBE9Mq4IzU6SIBsg7FAdoP3PEjRC1o27kW0Jp66ug6YbyXa1ooAWbsQ1VXfJLX0');
+insert into logins_hard VALUES ('141640005', '$6$DW3rMhTbdeHj/sYV$JTN9A2ain6y8Kc09o3T/rMFOrGoxOxRfZrf0Mby7u2mLdgauFQzTUALsUorPT9x166xSqvMoTUg.kPVIm60h10');
+insert into logins_hard VALUES ('141640006', '$6$DW3rMhTbdeHj/sYV$DR1rQRovn9VcCeK13zfx/Udem2bZkmNBk24hJcjmgZEI9qIR5zifY7M1sKPcr/qHzpNvNbUMBoHHxJR3ALBcW/');
+insert into logins_hard VALUES ('141640007', '$6$DW3rMhTbdeHj/sYV$KvW6k5TatJVvY8q0eJ3v9AqSnJHRAdAUPxgDQADvzwSAfJl5q86Pw6HAHygZ6TyqF.DZcOK2t3R9Ggvgb/apR/');
+insert into logins_hard VALUES ('141640008', '$6$DW3rMhTbdeHj/sYV$xxvd/kiwGkthzyuX5Iv1F3usRUhyE7pv07R4b.YwmwgAyULpH0iM7kAnjPtxdE.MNG7bz.lENzY03kCdIzoL3.');
+insert into logins_hard VALUES ('141640009', '$6$DW3rMhTbdeHj/sYV$sSHnl/SJCvPk89.wfD93dbCysRzAgJr/fTSuh96jLuXwHtYaYQAs.Uz0W0rf818SobYYEQsm1oQbe9mgz9KNd.');
+insert into logins_hard VALUES ('141640010', '$6$DW3rMhTbdeHj/sYV$/ITEbtAQiYpF0H25vU.YVPyNLC2CfFirbMxNVPj.ulkF7sRAsu8Jrv2yVMEfbAem.NP0Pct.bo.y4iu/iLrBS0');
+insert into logins_hard VALUES ('141640011', '$6$DW3rMhTbdeHj/sYV$j2l5upqwXzgcrMblRGIUeUM0OhTjJ3zOE75W/H4dfzqVHNgZ2an2Qb8WQ16SLQ5rkWqEe5/66fv3yh20JV31y1');
+insert into logins_hard VALUES ('141640012', '$6$DW3rMhTbdeHj/sYV$Zce6qdRD2JVY3wLtX1IntP9aq80tEXgOl9m7Xkr2b374B3yFv5VFdqLnG6LNzO8Q1OCKeFG5TDnPvWNHOyRzx1');
+insert into logins_hard VALUES ('141640013', '$6$DW3rMhTbdeHj/sYV$OMaN3wyElNH/2PGM2sUUa3nNMvlHPceGpeq1XcPEtZc7fsn7iBlcaO4iDPMLJ6HtsqarUyR8MdyE.m7uZTbLX1');
+insert into logins_hard VALUES ('141640014', '$6$DW3rMhTbdeHj/sYV$VMECuyPzA27xjeJ9K6O/EnCB.dJcQhtJtzNQMl4Id77L0PmNKfjqG0u6F.O9AviDsCAD1H0Dqxt7hVPGNlSQ61');
+insert into logins_hard VALUES ('141640015', '$6$DW3rMhTbdeHj/sYV$/lCz3N8yExPn.oP07p8Nj6M5ymE3QrdT2NRxazicSe/ip/DPuOKNHNuRTT7tUzfFyJuILQ8Kbb2cldTvx3Os.0');
+insert into logins_hard VALUES ('141640016', '$6$DW3rMhTbdeHj/sYV$OhsVOXRF.k5ALP.ZLm3E8wmY.bEXZQ8rwjLUb6yNBCR1WnOwbOF/KahgFj5WmoRpAeGVpuBD.mVc8JYrzBDvb0');
+insert into logins_hard VALUES ('141640017', '$6$DW3rMhTbdeHj/sYV$Lfb6h9Qjs9vN30e.7jC0UgL/wfDDTLSHs0GnM/f1QdlRSoCrPmLFBFuYkYvZ8jxpyl8glVvLOLVdalGaS5SFe1');
+insert into logins_hard VALUES ('141640018', '$6$DW3rMhTbdeHj/sYV$u4UvCUlC0zPgEA53lUtEBuQTlKa8yxi.oMBUVyIx6EIl6YNejRK7SjdGhYUPnyTljdgSMJatYRJoiZqWHlw6u.');
+insert into logins_hard VALUES ('141640019', '$6$DW3rMhTbdeHj/sYV$JdNrEy1LK0jNfWwPuDepFIyAvXIduN9m6MtgbCblMloc9TwErfFgeA2aezPGlCov.cat6CiLMYjr4Iq9msjx5/');
+insert into logins_hard VALUES ('141640020', '$6$DW3rMhTbdeHj/sYV$zNhC2s67PcDL4otf7hBbCBECV9iHWkZ8pFHdvDGrNd/CBdZDJu02zidCnwFwZ5LkNVOw4TPj1MForjFqDPIut0');
+insert into logins_hard VALUES ('141640021', '$6$DW3rMhTbdeHj/sYV$VZ/V4iLObmQbSklSJ/fBtdRJmNydCFK2t/mneozrOyK42aU4NBhtxKEZCGwkOtyiyUMrIuMO5OBg/QATkJsyC.');
+insert into logins_hard VALUES ('141640022', '$6$DW3rMhTbdeHj/sYV$8gPuyJGvrKKnMtKcO8RRFik6Y/aJ.q7zRiq.cFtdWm3ZIlgKxotiZa7C0efLVb8tZrM7XSv8DurX2D03UxcVv.');
+insert into logins_hard VALUES ('141640023', '$6$DW3rMhTbdeHj/sYV$gkpDbFr9LFurlEPqdDI4c6vxcTHTgTi5bHGVUz.YkpbmpdWPAFqcX2v2b./OODwpTY13V9.zcWqttMSD6nuDx.');
+insert into logins_hard VALUES ('141640024', '$6$DW3rMhTbdeHj/sYV$37nyXDEs9m3pYPRyY0xlnuXKCurCsalwfLE5d4wp5sAYrsIdmFm0/FjO.3aPpYBZ.wz..UzgPih6r2BmvGJXI/');
+insert into logins_hard VALUES ('141640025', '$6$DW3rMhTbdeHj/sYV$QW6I1pEOExt.JrqgnV6zD8Ve4/Skrcw9je9/o9Rza5zO1U1N5iK14YCN0F1.1hX9JTUaylohgdBMi1xKlxG911');
+insert into logins_hard VALUES ('141640026', '$6$DW3rMhTbdeHj/sYV$6jtQTcuLTdCirYC5qviIGdgGjubGyvDlrGkcXJF.xRMGqio.n4RjUAVt7.f5Cc5Z/dByZkGJvMFA9vN6H1QZl.');
+insert into logins_hard VALUES ('141640027', '$6$DW3rMhTbdeHj/sYV$QhvgsJ/ASoWt4iXB2sUA.GGh.koKoKrrotgTmvHabyK0urf1mHPdTofxNEeavzCembGqjARm7nyECdg0MyHdI1');
+insert into logins_hard VALUES ('141640028', '$6$DW3rMhTbdeHj/sYV$bLNhFP5far8yCHkh9NH3at8ZMk0mWxLtXst5UXQl0iYQCdE5XaIZLwViG8lY/rtkB8XL5gFf14VPS0/j/N2l.0');
+insert into logins_hard VALUES ('141640029', '$6$DW3rMhTbdeHj/sYV$xlquaiDktLXZpqY13hJjVPvDeJQSUD8alaIiqmAZbC1/pnvmJlnQjwGjqu0TgxdKFOvyPTEerVmkyK5aO8BpD.');
+insert into logins_hard VALUES ('141640030', '$6$DW3rMhTbdeHj/sYV$yvjzNS/aQqj6iLlp/ByIF1uHVfNzZQd3FzdpLf5EegbZHHBRP2lk6TUXV4WQGMEMfcdKeVgcGx1IKQKotxuQB0');
+insert into logins_hard VALUES ('141640031', '$6$DW3rMhTbdeHj/sYV$VtnkuiQI.I.OA96cM5VSMOV.9jsAUbmifioYLIMkEn6Jetf27cHVz5IpbnckRacJxWvdKNzSJ7PAnOg.HHhQc1');
+insert into logins_hard VALUES ('141640032', '$6$DW3rMhTbdeHj/sYV$YXdrRkWR4YVAZgTlFoC6Am3vB89REGVP2GqohtmJ4VdrnNhrJMQE3zurGxCq0zoL8.oKtvif68MBeObgfCroF/');
+
+
+
+create user login_user with password 'christopher';
+grant CONNECT ON DATABASE students TO login_user;
+grant SELECT ON logins TO login_user;
+grant SELECT ON logins_hard TO login_user;
+grant UPDATE ON logins_hard TO login_user;
+
+
+
+create database bank;
+\connect bank
+
+create table balance (
+    account_id CHAR (10) PRIMARY KEY,
+    balance double precision default 100
+);
+
+insert into balance VALUES ('7218540336', 100);
+
+create user banker_cat with password 'veryveryrandompasswordmeowrrrrr';
+grant CONNECT ON DATABASE bank TO banker_cat;
+grant SELECT ON balance TO banker_cat;
+grant UPDATE ON balance TO banker_cat;

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block main_body %}
+<div class="grid justify-items-center">
+    <!-- Cat Image Reference: https://www.pexels.com/search/cat/ -->
+    <div class="m-3 mb-5 text-5xl font-bold text-red-400 mr-3 py-1 px-2 leading-tight">
+        Cute Cat Gallery
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {% for idx in range (start, end + 1) %}
+        <img
+            src="/gallery?filename=cats/{{ idx }}.{{ ext }}"
+            class="p-1"
+        />
+        {% endfor %}
+
+        {% if not start or not end or not ext %}
+        <div class="text-2xl text-red-500 font-bold">
+            Meowwwrrrr! No cats found :/
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}

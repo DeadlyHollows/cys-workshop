@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hackerspace CYS 101</title>
+    <link href="/assets/libs/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    {% if include_header == True %}
+        {% include "header.html" %}
+    {% endif %}
+
+    {% block main_body %}
+    {% endblock %}
+
+    <script>
+        function gotoChallenge(index) {
+            window.location.href = "/challenges/" + ("0" + index).slice(-2);
+        }
+    </script>
+
+</body>
+
+</html>

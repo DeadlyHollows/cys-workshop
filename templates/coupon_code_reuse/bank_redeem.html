@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block main_body %}
+<div class="grid justify-items-center">
+    <div class="m-8 text-5xl font-bold text-green-700 mr-3 py-1 px-2 leading-tight">
+        Secure Bank
+    </div>
+    <div>
+        <form class="w-full max-w-lg" method="GET">
+            <div class="flex">
+                <div class="border-b border-green-500 py-2 mx-4">
+                    <input name="redeem_code"
+                        class="mx-3 text-xl appearance-none bg-transparent border-none w-full text-gray-700 py-1 leading-tight focus:outline-none"
+                        type="text" placeholder="Your Redeem Code" aria-label="Redeem Code">
+                </div>
+                <button
+                    class="px-3 flex-shrink-0 font-bold text-white bg-green-500 hover:bg-green-700 border-green-500 hover:border-green-700 text-xl border-4 py-1 px-2 rounded"
+                    type="submit">
+                    Redeem
+                </button>
+            </div>
+        </form>
+    </div>
+
+    {% if balance %}
+    <div class="text-2xl text-center my-10 text-green-700">
+        Your current balance is <span class="font-bold">${{ balance }}</span>
+    </div>
+    {% endif %}
+    {% if message %}
+    <div class="text-xl text-center text-red-500 font-bold">
+        {{ message }}
+    </div>
+    {% endif %}
+    {% if golden_ticket %}
+    <div class="text-2xl text-center mt-10 text-green-700">
+        And here's your Golden Ticket: <span class="font-bold">{{ golden_ticket }}</span>
+    </div>
+    {% endif %}
+
+    <button
+        class="px-3 mx-3 my-10 flex-shrink-0 font-bold text-white bg-green-500 hover:bg-green-700 border-green-500 hover:border-green-700 text-xl border-4 py-1 px-2 rounded"
+        onclick="window.location.href = '/challenges/11?reset=true'">
+        Reset challenge
+    </button>
+
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block main_body %}
+<div class="container mt-4 mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {% for challenge in challenges %}
+        <div onclick="gotoChallenge({{ loop.index }})" class="card m-2 cursor-pointer border border-gray-400 rounded-lg hover:shadow-md hover:border-blue-400 transform hover:-translate-y-1 transition-all duration-200">
+            <div class="m-3">
+                <h2 class="text-2xl mb-2">
+                    <span class="challenge-title">
+                        {{ challenge.title }}
+                    </span>
+                    <span
+                        class="challenge-tag text-sm text-teal-800 font-mono bg-teal-100 inline rounded-full px-2 align-top float-right animate-pulse"
+                    >
+                        {{ challenge.difficulty }}
+                    </span>
+                </h2>
+                <p
+                    class="challenge-text font-light font-mono text-lg text-gray-700 hover:text-gray-900 transition-all duration-200"
+                >
+                    {{ challenge.text }}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

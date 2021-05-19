@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block main_body %}
+<div class="mt-7">
+    <div class="m-3 text-2xl font-bold text-green-700">
+        Welcome {{roll_no}},
+    </div>
+    <div class="text-xl text-gray-800 my-5 m-3">
+        Here's your flag: 
+        <span class="font-bold text-green-700">
+            {{ flag }}
+        </span>
+    </div>
+</div>
+{% endblock %}

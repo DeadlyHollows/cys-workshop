@@ -1,0 +1,57 @@
+[
+    {
+        "title": "Insecure Direct Object References",
+        "difficulty": "EASY",
+        "text": "Insecure Direct Object References (IDOR) are a type of access control vulnerability that arises when an application uses user-supplied input to access objects directly."
+    },
+    {
+        "title": "Directory Traversal",
+        "difficulty": "EASY",
+        "text": "Directory traversal (also known as file path traversal) is a web security vulnerability that allows an attacker to read arbitrary files (including app code, data, credentials for backend systems, and sensitive OS files) on the server that is running an application."
+    },
+    {
+        "title": "SQL Injection",
+        "difficulty": "EASY",
+        "text": "SQL injection is a web security vulnerability that allows an attacker to interfere with the queries that an application makes to its database, allowing her to view data that wasn't normally accessible."
+    },
+    {
+        "title": "Command Injection",
+        "difficulty": "EASY",
+        "text": "OS command injection (also known as shell injection) is a web security vulnerability that allows an attacker to execute arbitrary OS commands on the application server, and typically fully compromise the application and all its data."
+    },
+    {
+        "title": "Weak Passwords",
+        "difficulty": "EASY",
+        "text": "This comes under Broken Authentication and is listed on 2nd position in OWASP Top 10 list, which indicates the prevelance of this issue! This can lead to full-account takeover."
+    },
+    {
+        "title": "Broken Password Reset",
+        "difficulty": "EASY",
+        "text": "Another Broken Buthentication issue which can lead to full account compromise! If the password reset procedure requires answering questions which someone else knows as well like your D.O.B, then they can reset your password easily!"
+    },
+    {
+        "title": "Coupon Code Reuse",
+        "difficulty": "EASY",
+        "text": "If the application doesn't enforces limits on the use of reward tokens, then they could be abused by a single or multiple users, letting them use the same code multiple times."
+    },
+    {
+        "title": "Timing Attacks",
+        "difficulty": "HARD",
+        "text": "This is a Side Channel Attack where the resulting application indirectly leaks some information that the attacker accumulates and repeats this attack to gain some substantial information to carry out further attacks!"
+    },
+    {
+        "title": "Date based attacks",
+        "difficulty": "EASY",
+        "text": "Some applications check system time and the registration times stored in their config files to infer when the trial period for that application expires. App users can modify the system time or the time present in the config files to use the application beyond the trial period."
+    },
+    {
+        "title": "Privilege Escalation attacks",
+        "difficulty": "MEDIUM",
+        "text": "If you can bypass application/system controls and gain/assume more privileges than you were intended to then you have performed a Privilege Escalation attack on the system. Consequences of such an attack can vary from accessing confidential information to distrupting the whole system or application."
+    },
+    {
+        "title": "Race Conditions",
+        "difficulty": "ADVANCED",
+        "text": "When two or more processes or threads try to access a shared state and perform some operation on it, then inconsistencies can arise resuting in as small as introducing application logic issues and as critical as introducing some serious bugs that could lead to system/application compromise due to these inconsistencies."
+    }
+]

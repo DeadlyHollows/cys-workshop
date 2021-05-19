@@ -1,0 +1,28 @@
+database_info:
+
+  ch01:
+    database: students
+    table: results
+    username: api_user
+    password: c00per
+
+  ch05:
+    database: students
+    table: logins
+    username: login_user
+    password: christopher
+
+  ch06:
+    database: students
+    table: logins_hard
+    username: login_user
+    password: christopher
+
+  ch11:
+    database: bank
+    table: balance
+    username: banker_cat
+    password: veryveryrandompasswordmeowrrrrr
+
+  host: 127.0.0.1
+  port: 5432

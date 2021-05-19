@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block main_body %}
+<div class="grid justify-items-center">
+    <div class="m-8 text-5xl font-bold text-green-700 mr-3 py-1 px-2 leading-tight">
+        School Results
+    </div>
+    <div>
+        <form class="w-full max-w-lg" method="GET">
+            <div class="flex">
+                <div class="border-b border-green-500 py-2 mx-4">
+                    <input
+                        name="roll_no"
+                        class="mx-3 text-xl appearance-none bg-transparent border-none w-full text-gray-700 py-1 leading-tight focus:outline-none"
+                        type="text"
+                        placeholder="Your Roll Number"
+                        aria-label="Roll Number"
+                    >
+                    <!-- <input type="hidden" name="raw" > -->
+                </div>
+                <button
+                    class="px-3 flex-shrink-0 font-bold text-white bg-green-500 hover:bg-green-700 border-green-500 hover:border-green-700 text-xl border-4 py-1 px-2 rounded"
+                    type="submit"
+                >
+                    Get Results
+                </button>
+            </div>
+        </form>
+    </div>
+    <div>
+
+        {% if response or error %}
+        <table class="text-xl my-10 table-auto border border-collapse border-green-800">
+            <thead>
+                <tr class="bg-blue-100">
+                    <th class="border border-blue-600 px-6">Roll No.</th>
+                    <th class="border border-blue-600 px-6">Name</th>
+                    <th class="border border-blue-600 px-6">CGPA</th>
+                </tr>
+            </thead>
+            {% if response %}
+            {% for student in response %}
+            <tbody>
+                {% if loop.index % 2 == 0 %}
+                <tr class="bg-green-200">
+                {% else %}
+                <tr>
+                {% endif %}
+                    <td class="border border-green-600 px-6">{{ student.roll_no }}</td>
+                    <td class="border border-green-600 px-6">{{ student.name }}</td>
+                    <td class="border border-green-600 px-6">{{ student.cgpa }}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+            {% elif error %}
+            <tbody>
+                <tr class="bg-red-200 text-center">
+                    <td class="border border-red-600 px-6">{{ error.roll_no | safe }}</td>
+                    <td colspan="2" class="border border-red-600 px-6">{{ error.message }}</td>
+                </tr>
+            </tbody>
+            {% endif %}
+        </table>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}
